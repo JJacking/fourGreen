@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
 <title>메인페이지</title>
-<link type="text/css" rel="stylesheet" href="../board/style/board.css">
+<link type="text/css" rel="stylesheet" href="./resources/style/board.css">
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 
@@ -24,19 +24,19 @@
       <li>
         <a href="#">게시판</a>
           <ul id="sub-menu">
-            <li><a href="#">공지사항</a></li>
+            <li><a href="/board/managerBoardList">공지사항</a></li>
             <li><a href="/board/boardList">자유게시판</a></li>
           </ul>
       </li>
       <li><a href="#">고객센터</a></li>
      </ul>
-   <%--  <c:if test="${}">
+    <%--  <c:if test="${}"> --%>
         <div class="loginBtn">
             <button type="button">로그인</button>
             <button type="button">회원가입</button>
         </div>
-    </c:if>
-    <c:if test="${! }">
+    <%-- </c:if> --%>
+   <%--  <c:if test="${! }">
         <p>${}님 환영합니다</p>
         <p><a href="#">내정보</a></p>
         <p><a href="#">포인트충전/조회</a></p>
@@ -52,9 +52,9 @@
     <input type="radio" name="slide" id="slide2">
     <input type="radio" name="slide" id="slide3">
     <ul id="imgholder" class="imgs">
-        <li><img src="img/ex11.jpg"></li>
-        <li><img src="img/ex22.jpg"></li>
-        <li><img src="img/ex33.jpg"></li>
+        <li><img src="resources/img/ex11.jpg"></li>
+        <li><img src="resources/img/ex22.jpg"></li>
+        <li><img src="resources/img/ex33.jpg"></li>
     </ul>
     <div class="bullets">
         <label for="slide1">&nbsp;</label>
@@ -72,22 +72,22 @@
       <br>
       <ul>
         <li>
-          <img src="img/XL.jpg">
+          <img src="resources/img/XL.jpg">
           <h4>상품명</h4>
           <p>가격</p>
         </li>
         <li>
-          <img src="img/ex01.jpg">
+          <img src="resources/img/ex01.jpg">
           <h4>상품명</h4>
           <p>가격</p>
         </li>
         <li>
-          <img src="img/ex02.jpg">
+          <img src="resources/img/ex02.jpg">
           <h4>상품명</h4>
           <p>가격</p>
         </li>
         <li>
-          <img src="img/ex03.jpg">
+          <img src="resources/img/ex03.jpg">
           <h4>상품명</h4>
           <p>가격</p>
         </li>
@@ -99,22 +99,22 @@
       <br>
       <ul>
         <li>
-          <img src="img/ex04.jpg">
+          <img src="resources/img/ex04.jpg">
           <h4>상품명</h4>
           <p>가격</p>
         </li>
         <li>
-          <img src="img/ex04.jpg">
+          <img src="resources/img/ex04.jpg">
           <h4>상품명</h4>
           <p>가격</p>
         </li>
         <li>
-          <img src="img/ex05.jpg">
+          <img src="resources/img/ex05.jpg">
           <h4>상품명</h4>
           <p>가격</p>
         </li>
         <li>
-          <img src="img/ex05.jpg">
+          <img src="resources/img/ex05.jpg">
           <h4>상품명</h4>
           <p>가격</p>
         </li>
@@ -133,7 +133,6 @@
 			<th>번호</th>
 			<th>제목</th>
 			<th>작성자</th>
-			<th>조회수</th>
 			<th>작성일</th>
 		</tr>
 		<c:forEach items="${manager}" var="manager">
@@ -141,10 +140,10 @@
 				<td>${manager.num}</td>
 				<td><a href="managerDetail?MgNum=${manager.MgNum}">${manager.title}</a></td>
 				<td>${manager.MgName}</td>
-				<td> <fmt:formatDate value="${manager.wirteDate}"/> </td>
 				<td>${manager.readCount}</td>
 			</tr>
 		</c:forEach>
+	</table>
   </div>
   <div class="userBoard">
     <h2>자유게시판</h2>

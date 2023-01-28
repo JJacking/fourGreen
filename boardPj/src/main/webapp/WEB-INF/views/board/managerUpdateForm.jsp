@@ -5,13 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>게시물 등록</title>
-<link type="text/css" rel="stylesheet" href="../board/style/board.css">
+<link type="text/css" rel="stylesheet" href="./resources/style/board.css">
 </head>
 <body>
   <form action="managerUpdate" method="post">
   <input type="hidden" name="comment" value="managerUpdate">
   <input type="hidden" name="MgNum" value="${mVo.MgNum}">
-    <table class="userBoard">
+    <table class="boardTb">
       <tr>
         <th>닉네임</th>
         <td><input type="text" name="MgName" value="${mVo.MgName}" required>*필수</td>

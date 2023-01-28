@@ -181,11 +181,66 @@ margin-left: 10px;
 width: 40%;
 height: 600px;
 }
+
+.managerBoard table{
+	width: 100%;
+	border-collapse: collapse;
+	font-size:12px;
+	line-height: 24px;
+	text-align: center;
+}
+
+.managerBoard td,th{
+	border: 1px solid #CE6D39;
+	padding: 5px;
+}
+.managerBoard th{
+	background-color: #FFEEE4;
+}
+
+.managerBoard a{
+  color: black;
+  text-decoration: none;
+}
+
+.managerBoard a:hover{
+  text-decoration: underline;
+  color: lightgreen;
+}
+
+
 .userBoard{
 float: right;
 margin-right: 20px;
 width: 40%;
 height: 600px;
+text-align: center;
+}
+
+.userBoard table{
+	width: 100%;
+	border-collapse: collapse;
+	font-size:12px;
+	line-height: 24px;
+	text-align: center;
+}
+
+.userBoard td,th{
+	border: 1px solid #CE6D39;
+	padding: 5px;
+}
+.userBoard th{
+	background-color: #FFEEE4;
+}
+
+.userBoard a{
+  color: black;
+  text-decoration: none;
+}
+
+.userBoard a:hover{
+  text-decoration: underline;
+  color: lightgreen;
 }
 
 .footer{
@@ -225,28 +280,42 @@ height: 150px;
   font-size: 30px;
 }
 
-.userBoard table{
-	width: 100%;
+#boardTb{
+	
+	margin: 10%;
+	width: 70%;
 	border-collapse: collapse;
-	font-size:12px;
-	line-height: 24px;
-	text-align: center;
+	font-size:15px;
+	line-height: 30px;
+}
+#boardTb table{
+  width: 100%;
+
+}
+#boardTb th,td{
+  text-align: left;
+  border-bottom: 1px solid lightgray;
+
 }
 
-.userBoard td,th{
-	border: 1px solid #CE6D39;
-	padding: 5px;
-}
-.userBoard th{
-	background-color: #FFEEE4;
+#boardTb th{
+
+border: 0px;
+background-color: lightgray;
+padding: 10px;
 }
 
-.userBoard a{
+#boardTb td{
+  line-height: 60px;
+}
+
+#boardTb a{
   color: black;
   text-decoration: none;
 }
 
-.userBoard a:hover{
+#boardTb a:hover{
   text-decoration: underline;
   color: lightgreen;
 }
+

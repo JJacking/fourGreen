@@ -5,10 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>게시글 수정</title>
-<link type="text/css" rel="stylesheet" href="../board/style/board.css">
+<link type="text/css" rel="stylesheet" href="./resources/style/board.css">
 </head>
 <body>
-<div id="userBoard" align="center">
+<div id="boardTb" align="center">
 	<h2>공지글 수정</h2>
 	<form action="managerUpdate" method="post">
 		<input type="hidden" name="command" value="managerUpdate">

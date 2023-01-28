@@ -7,11 +7,11 @@
 <head>
 <meta charset="UTF-8">
 <title>게시글 상세보기</title>
-<link type="text/css" rel="stylesheet" href="../board/style/board.css">
+<link type="text/css" rel="stylesheet" href="./resources/style/board.css">
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
-    <div id="userBoard">
+    <div id="boardTb">
       <h2>공지사항</h2>
       <table>
         <tr>

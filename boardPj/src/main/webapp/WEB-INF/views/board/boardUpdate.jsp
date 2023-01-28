@@ -5,10 +5,38 @@
 <head>
 <meta charset="UTF-8">
 <title>게시글 수정</title>
-<link type="text/css" rel="stylesheet" href="../board/style/board.css">
+<link type="text/css" rel="stylesheet" href="./resources/style/board.css">
 </head>
 <body>
-<div id="userBoard" align="center">
+<div class="nav">
+  <div><h2><a href="#">logo</a></h2></div>
+     <ul class="nav-menu">
+      <li><a href="#">물품보기</a></li>
+      <li><a href="#">물품등록</a></li>
+      <li>
+        <a href="#">게시판</a>
+          <ul id="sub-menu">
+            <li><a href="/board/managerBoardList">공지사항</a></li>
+            <li><a href="/board/boardList">자유게시판</a></li>
+          </ul>
+      </li>
+      <li><a href="#">고객센터</a></li>
+     </ul>
+    <%--  <c:if test="${}"> --%>
+        <div class="loginBtn">
+            <button type="button">로그인</button>
+            <button type="button">회원가입</button>
+        </div>
+    <%-- </c:if> --%>
+   <%--  <c:if test="${! }">
+        <p>${}님 환영합니다</p>
+        <p><a href="#">내정보</a></p>
+        <p><a href="#">포인트충전/조회</a></p>
+        <p><a href="#">낙찰내역</a></p>
+        <p><a href="#">응찰내역</a></p>
+    </c:if> --%>
+</div>
+<div id="boardTb" align="center">
 	<h2>게시글 수정</h2>
 	<form action="boardUpdate" method="post">
 		<input type="hidden" name="command" value="boardUpdate">
