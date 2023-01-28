@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
 <title>메인페이지</title>
-<link type="text/css" rel="stylesheet" href="board/style/board.css">
+<link type="text/css" rel="stylesheet" href="../board/style/board.css">
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 
@@ -128,7 +128,23 @@
     <h2>공지사항</h2>
     <hr>
     <br>
-    <img src="img/ex06.jpg" style="width: 100%; height: 400px; margin-top: 10px;">
+    <table>
+		<tr>
+			<th>번호</th>
+			<th>제목</th>
+			<th>작성자</th>
+			<th>조회수</th>
+			<th>작성일</th>
+		</tr>
+		<c:forEach items="${manager}" var="manager">
+			<tr>
+				<td>${manager.num}</td>
+				<td><a href="managerDetail?MgNum=${manager.MgNum}">${manager.title}</a></td>
+				<td>${manager.MgName}</td>
+				<td> <fmt:formatDate value="${manager.wirteDate}"/> </td>
+				<td>${manager.readCount}</td>
+			</tr>
+		</c:forEach>
   </div>
   <div class="userBoard">
     <h2>자유게시판</h2>

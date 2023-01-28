@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.green.vo.BoardVo;
 import com.green.vo.CommentVo;
+import com.green.vo.ManagerVo;
 
 public class BoardDao {
 	
@@ -66,6 +67,34 @@ public class BoardDao {
 		sqlSession.delete("mybatis.mapper.comment.commentDelete",cno);
 	}
 	
+	//공지사항읽어오기(관리자페이지)
+	public List<ManagerVo> selectAllmanager(){
+		return sqlSession.selectList("mybatis.mapper.manager.selectAllmanager");
+	}
 	
+	//상세게시판(관리자페이지)
+	public ManagerVo selectByMgNum(int MgNum) {
+		return sqlSession.selectOne("mybatis.mapper.manager.selectByMgNum", MgNum);
+	}
+
+	//조회수증가(관리자페이지)
+	public void readCountMgBoard(int MgNum) {
+		sqlSession.selectOne("mybatis.mapper.manager.readCountMgBoard", MgNum);
+	}
+	
+	//게시판등록(관리자페이지)
+	public void managerWrite(ManagerVo mVo) {
+		sqlSession.insert("mybatis.mapper.board.boardWrite",mVo);
+	}
+	
+	//게시판 수정(관리자페이지)
+	public void managerUpdate(ManagerVo mVo) {
+		sqlSession.update("mybatis.mapper.board.boardUpdate",mVo);
+	}
+	
+	//게시판 삭제(관리자페이지)
+	public void managerDelete(int MgNum) {
+		sqlSession.delete("mybatis.mapper.board.boardDelete",MgNum);
+	}
 }
 
