@@ -32,9 +32,9 @@
 		<constructor-arg ref="sqlSessionFactory"/>
 	</bean>
 	
-	<bean id="boardController" class="com.green.controller.BoardController"></bean>
-	<bean id="boardDao" class="com.green.dao.BoardDao"></bean>
-	<bean id="boardService" class="com.green.service.BoardService"></bean>
+	<bean id="boardController" class="com.green.boardController.BoardController"></bean>
+	<bean id="boardDao" class="com.green.boardDao.BoardDao"></bean>
+	<bean id="boardService" class="com.green.boardService.BoardService"></bean>
 	
 	
 </beans>
