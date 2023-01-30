@@ -39,7 +39,7 @@
   <form action="boardUpdate" method="post">
   <input type="hidden" name="comment" value="boardUpdate">
   <input type="hidden" name="num" value="${board.num}">
-    <table class="boardTb">
+    <table id="boardTb">
       <tr>
         <th>닉네임</th>
         <td><input type="text" name="nickName" value="${board.nickName}" required>*필수</td>

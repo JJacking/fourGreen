@@ -13,6 +13,187 @@
 <title>메인페이지</title>
 <link type="text/css" rel="stylesheet" href="./resources/style/board.css">
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<style>
+.slider{
+  width: 100%;
+  height: 500px;
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.slider input[type=radio]{
+  display: none;
+}
+ul.imgs{
+  padding: 0;
+  margin: 0;
+  list-style: none;    
+}
+ul.imgs li{
+  position: absolute;
+  left: 640px;
+  transition-delay: 1s; 
+  background-size: cover;
+  padding: 0;
+  margin: 0;
+}
+.bullets{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+  z-index: 2;
+}
+.bullets label{
+  display: inline-block;
+  border-radius: 50%;
+  background-color: rgba(0,0,0,0.55);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.slider input[type=radio]:nth-child(1):checked~.bullets>label:nth-child(1){
+  background-color: black;
+}
+.slider input[type=radio]:nth-child(2):checked~.bullets>label:nth-child(2){
+  background-color: black;
+}
+.slider input[type=radio]:nth-child(3):checked~.bullets>label:nth-child(3){
+  background-color: black;
+}
+
+.slider input[type=radio]:nth-child(1):checked~ul.imgs>li:nth-child(1){
+  left: 0;
+  transition: 0.5s;
+  z-index:1;
+}
+.slider input[type=radio]:nth-child(2):checked~ul.imgs>li:nth-child(2){
+  left: 0;
+  transition: 0.5s;
+  z-index:1;
+}
+.slider input[type=radio]:nth-child(3):checked~ul.imgs>li:nth-child(3){
+  left: 0;
+  transition: 0.5s;
+  z-index:1;
+}
+
+.main{
+width: 1000px;
+height: 1500px;
+margin-left: 20%;
+margin-right: 20%;
+}
+
+.img-board{
+text-align: left;
+margin-top: 30px;
+margin-left: 30px;
+
+height: 800px;
+}
+.img-board ul{
+
+list-style: none;
+}
+
+.img-board li{
+display: inline-block;
+border: 1px solid lightgray;
+margin-right: 30px;
+margin-bottom: 30px;
+}
+
+.img-board li img{
+width: 150px;
+height: 200px;
+margin-bottom: 50px;
+margin-right: 20px;
+margin: auto;
+padding: auto;
+}
+
+.popular-board{
+float: left;
+margin-left: 10px;
+width: 40%;
+height: 600px;
+}
+.new-board{
+float: right;
+margin-right: 20px;
+width: 40%;
+height: 600px;
+}
+.managerBoard{
+float: left;
+margin-left: 10px;
+width: 40%;
+height: 600px;
+}
+
+.managerBoard table{
+	width: 100%;
+	border-collapse: collapse;
+	font-size:12px;
+	line-height: 24px;
+	text-align: center;
+}
+
+.managerBoard td,th{
+	border: 1px solid #CE6D39;
+	padding: 5px;
+}
+.managerBoard th{
+	background-color: #FFEEE4;
+}
+
+.managerBoard a{
+  color: black;
+  text-decoration: none;
+}
+
+.managerBoard a:hover{
+  text-decoration: underline;
+  color: lightgreen;
+}
+
+
+.userBoard{
+float: right;
+margin-right: 20px;
+width: 40%;
+height: 600px;
+text-align: center;
+}
+
+.userBoard table{
+	width: 100%;
+	border-collapse: collapse;
+	font-size:12px;
+	line-height: 24px;
+	text-align: center;
+}
+
+.userBoard td,th{
+	border: 1px solid #CE6D39;
+	padding: 5px;
+}
+.userBoard th{
+	background-color: #FFEEE4;
+}
+
+.userBoard a{
+  color: black;
+  text-decoration: none;
+}
+
+.userBoard a:hover{
+  text-decoration: underline;
+  color: lightgreen;
+}
+</style>
 </head>
 
 <body>

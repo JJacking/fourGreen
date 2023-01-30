@@ -118,7 +118,6 @@ public class BoardController {
 	public String manager(Model model) {
 		List<ManagerVo> manager = boardService.selectAllmanager();
 		model.addAttribute("manager", manager);
-	
 		return "board/managerBoardList";
 	}
 	

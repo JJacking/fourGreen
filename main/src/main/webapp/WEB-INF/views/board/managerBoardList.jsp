@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,13 +49,13 @@
 			<th>작성일</th>
 		</tr>
 		<c:forEach items="${manager}" var="manager">
-			<tr>
-				<td>${manager.num}</td>
-				<td><a href="managerDetail?MgNum=${manager.MgNum}">${manager.title}</a></td>
-				<td>${manager.MgName}</td>
-				<td> <fmt:formatDate value="${manager.wirteDate}"/> </td>
-				<td>${board.readCount}</td>
-			</tr>
+		<tr>
+			<td>${manager.MgNum}</td>
+			<td><a href="managerDetail?MgNum=${manager.MgNum}">${manager.title}</a></td>
+			<td>${manager.MgName}</td>
+			<td> <fmt:formatDate value="${manager.wirteDate}"/> </td>
+			<td>${manager.readCount}</td>
+		</tr>
 		</c:forEach>
 		<tr>
 			<td colspan="5" style="border: white; text-align: right">

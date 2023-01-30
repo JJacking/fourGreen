@@ -65,32 +65,32 @@ public class BoardService {
 		boardDao.commentDelete(cno);
 	}
 
-	//전체읽어오기
+	//공지사항읽어오기
 	public List<ManagerVo> selectAllmanager(){
 		return boardDao.selectAllmanager(); 
 	}
 	
-	//조회수
+	//공지사항조회수
 	public void readCountMgBoard(int MgNum) {
 		boardDao.readCountMgBoard(MgNum);
 	}
 	
-	//상세보기
+	//공지사항상세보기
 	public ManagerVo selectByMgNum(int MgNum) {
 		return boardDao.selectByMgNum(MgNum);
 	}
 	
-	//글쓰기
+	//공지사항글쓰기
 	public void managerWrite(ManagerVo mVo) {
 		boardDao.managerWrite(mVo);
 	}
 		
-	//글수정
+	//공지사항글수정
 	public void managerUpdate(ManagerVo mVo) {
 		boardDao.managerUpdate(mVo);
 	}
 	
-	//글삭제
+	//공지사항글삭제
 	public void managerDelete(int MgNum) {
 		boardDao.managerDelete(MgNum);
 	}

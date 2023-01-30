@@ -9,6 +9,42 @@
 <title>게시글 상세보기</title>
 <link type="text/css" rel="stylesheet" href="./resources/style/board.css">
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<style>
+	#comment{
+	  margin: 10%;
+	  width: 70%;
+	  border-collapse: collapse;
+	  font-size:15px;
+	}
+	#comment table{
+	  width: 100%;
+	
+	}
+	#comment th,td{
+	  text-align: left;
+	}
+	
+	#comment td{
+	  border: 0;
+      border-radius: 10px;
+	  line-height: 30px;
+	}
+  	.commentBtn{
+      border: 1px solid orange;
+      text-align: center;
+    }
+    .commentRead{
+      border: 1px solid white;
+      background-color: #FFEEE4;
+      border-radius: 10px;
+    }
+    .commentWrite{
+      margin-top: 0;
+      border: 1px solid orange;
+      text-align: center;
+    }
+  
+</style>
 </head>
 <body>
 <div class="nav">
@@ -41,6 +77,7 @@
 </div>
     <div id="boardTb">
       <h2>게시글 리스트</h2>
+      <br>
       <table>
         <tr>
           <th>제목</th>
@@ -70,46 +107,37 @@
       </table>
      </div>
      <!-- 댓글 페이지 -->
-     <div id="boardTb">
+     <div id="comment" class="commentRead">
      	<form action="commentUpdate" method="post" id="commentUpdate">
 	     	<input type="hidden" name="comment" value="commentUpdate">
 	     	<input type="hidden" name="cno" value="${board.num}">
       		<table>
       			<c:forEach items="${lists}" var="comment">
-      				<tr>
-      					<td>닉네임</td>
-      					<td id="nick">${comment.userName}</td>		
-  						<td>작성일</td>
-  						<td>${comment.reWirteDate}</td>
-      				</tr>
-      				<tr>
-      					<td>내용</td>
-  						<td colspan="2" id="temp">${comment.reContent}</td>
-  						<td>
-  							<button type="button" onclick="commentUpdate()">수정</button>
-      						<button type="button" id ="commentDelete" onclick="removeComment('${comment.cno}','${comment.num}')">삭제</button>
-      					</td>
-      				</tr>
+      			<tr>
+      				<td><b>${comment.userName}</b></td>
+	            <td style="width: 60%;">${comment.reContent}</td>
+	            <td>${comment.reWirteDate}</td>
+	            <td class="commentBtn">
+	              <button type="button" onclick="commentUpdate()">수정</button><br>
+	              <button type="button" id ="commentDelete" onclick="removeComment('${comment.cno}','${comment.num}')">삭제</button>
+	            </td>
+      			</tr>
       			</c:forEach>
       		</table>
       	</form>
-      </div>
-      <form action="commentWrite" method="POST">
+      	</div>
+      	<div id="comment">
+      	<form action="commentWrite" method="POST">
       	<input type="hidden" name="num" value="${board.num}">
-      	<div id="wrap">
-      		<table id="commentTb">
+      		<table id="commentTb" class="commentWrite">
       			<tr>
       				<td>닉네임</td>
       				<td><input type="text" name="userName"></td>
-      				<td>비밀번호</td>
-      				<td><input type="password" name="userPass"></td>
-      			</tr>
-      			<tr>
       				<td>내용</td>
-      				<td colspan="2"><textarea rows="10" cols="40" name="reContent"></textarea></td>
-          			<td>
-			          	<button type="submit">댓글달기</button>
-        			</td>
+      				<td colspan="3"><textarea rows="3" cols="100" name="reContent" style="vertical-align: middle;"></textarea></td>
+      				<td rowspan="2" class="commentBtn">
+                		<button type="submit">댓글달기</button>
+            		</td>
       			</tr>
       		</table>
 		</div>

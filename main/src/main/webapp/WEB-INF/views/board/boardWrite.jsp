@@ -6,6 +6,15 @@
 <meta charset="UTF-8">
 <title>게시물 등록</title>
 <link type="text/css" rel="stylesheet" href="./resources/style/board.css">
+<style>
+  #boardTb input{
+    width: 100%;
+    height: 23px;
+  }
+  .writeBtn{
+    text-align: center;
+  }
+</style>
 </head>
 <body>
 <div class="nav">
@@ -38,38 +47,34 @@
 </div>
   <form action="boardWrite" method="post">
   <input type="hidden" name="command" value="boardWrite">
-  <div class="boardTb">
+  <div id="boardTb">
     <table>
       <tr>
         <th>닉네임</th>
-        <td><input type="text" name="nickName" required>*필수</td>
+        <td><input type="text" name="nickName" placeholder="필수" required></td>
       </tr>
       <tr>
         <th>이메일</th>
-        <td><input type="email" name="email" required>*필수</td>
+        <td><input type="email" name="email" placeholder="필수" required></td>
       </tr>
       <tr>
         <th>비밀번호</th>
-        <td><input type="password" name="pass" required>*필수</td>
+        <td><input type="password" name="pass" placeholder="필수" required></td>
       </tr>
       <tr>
         <th>글제목</th>
-        <td><input type="text" name="title" required>*필수</td>
+        <td><input type="text" name="title" placeholder="필수" required></td>
       </tr>
       <tr>
         <th>본문</th>
-        <td><textarea rows="15" cols="70" name="content"></textarea></td>
+        <td><textarea rows="15" style="width: 100%;" name="content"></textarea></td>
       </tr>
-     
-      <tr>
-        <td colspan="2">
+    </table>  
+      <div class="writeBtn">
           <button type="submit">글작성</button>
           <button type="reset">다시 작성</button>
           <button type="button" onclick="location.href='boardList'">목록으로</button>
-        </td>
-      </tr>
-  
-    </table>
+      </div>    
     </div>
   </form>
   

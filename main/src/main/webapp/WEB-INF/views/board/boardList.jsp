@@ -8,6 +8,26 @@
 <meta charset="UTF-8">
 <title>커뮤니티 게시판</title>
 <link type="text/css" rel="stylesheet" href="./resources/style/board.css">
+<style>
+p{
+	text-align: right;
+}
+.col1{
+width: 10%;
+}
+.col2{
+  width: 57%;
+}
+.col3{
+  width: 13%;
+}
+.col4{
+  width: 10%;
+}
+.col5{
+  width: 10%;
+}
+</style>
 </head>
 <body>
 <div class="nav">
@@ -43,6 +63,13 @@
 	<hr>
 	<br>
 	<table>
+		<colgroup>
+			<col class="col1">
+			<col class="col2">
+			<col class="col3">
+			<col class="col4">
+			<col class="col5">
+		</colgroup>
 		<tr>
 			<th>번호</th>
 			<th>제목</th>

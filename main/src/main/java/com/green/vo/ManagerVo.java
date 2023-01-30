@@ -11,6 +11,19 @@ public class ManagerVo {
 	private Timestamp wirteDate;
 	
 	public ManagerVo() {}
+	
+	
+	
+	public ManagerVo(int mgNum, String mgName, String title, String content, int readCount, Timestamp wirteDate) {
+		MgNum = mgNum;
+		MgName = mgName;
+		this.title = title;
+		this.content = content;
+		this.readCount = readCount;
+		this.wirteDate = wirteDate;
+	}
+
+
 
 	public int getMgNum() {
 		return MgNum;
