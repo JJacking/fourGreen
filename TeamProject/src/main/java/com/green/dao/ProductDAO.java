@@ -1,5 +1,7 @@
 package com.green.dao;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,6 +34,10 @@ public class ProductDAO {
 	public void readCount(int num){
 		sqlSession.update("mybatis.mapper.product.readCount", num);	
 	}
+
+	public void direct(int num){
+		sqlSession.update("mybatis.mapper.product.direct", num);	
+	}
 	
 	public void insertProduct(AuctionDto dto) {
 		sqlSession.insert("mybatis.mapper.product.insertProduct",dto);
@@ -48,6 +54,7 @@ public class ProductDAO {
 	}
 	
 	public void insertCustomer(CustomerDto dto) {
+		System.out.println(dto.getBidMoney()+" / "+dto.getNum());
 		biding(Integer.parseInt(dto.getBidMoney()), dto.getNum());
 		sqlSession.insert("mybatis.mapper.product.insertCustomer",dto);
 	}
@@ -58,7 +65,9 @@ public class ProductDAO {
 	
 	public List<AuctionDto> selectTargetAuctionByPaging(String category, String filter, String sort, int startNum, String end){
 		System.out.println(category+" / "+filter+" / "+sort+" / "+startNum+" / "+end);
-		Object[] array = {category, filter, sort, startNum, end};
+		SimpleDateFormat sdf = new SimpleDateFormat("yy/MM/dd HH:mm:ss");
+		String date = sdf.format(new Date());
+		Object[] array = {category, filter, sort, startNum, end, date};
 		return sqlSession.selectList("mybatis.mapper.product.selectTargetAuctionByPaging",array);
 	}
 
@@ -77,21 +86,6 @@ public class ProductDAO {
 	}
 
 
-//	public List<AuctionDto> biding(int strPrice, String bidTime){
-//		String[] array = {searchCate, "%"+searchText+"%"};
-//		return sqlSession.selectList("mybatis.mapper.product.search",array);
-//	}
 
-//	public Object readCount() {
-//		sqlSession.update("mybatis.mapper.product.readCount");
-//		
-//		return sqlSession.selectOne("mybatis.mapper.product.selectAllNumAuction");
-//	}
-	
-	
-	
-	
-
-	
 	
 }

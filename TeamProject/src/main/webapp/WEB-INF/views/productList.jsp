@@ -105,7 +105,7 @@
 				<img src="/auction/noimage.jpg">
 			</c:when>
 			<c:otherwise>
-				<%-- <img src="/auction/${product.productPic}"> --%>
+				<img src="/auction/${product.productPic}">
 			</c:otherwise>
 		</c:choose>
 		</a>
@@ -117,14 +117,17 @@
 		<span>${product.title }</span><br>
 		
 		<span>
-			입찰 <p>${product.bidCount}</p>
-		</span>
+			입찰가 : ${product.strPrice}
+		</span><br>
 		<span>
-			즉시구매 <p>${product.dirPrice}</p>
-		</span>
+			입찰 수 : ${product.bidCount}
+		</span><br>
 		<span>
-			조회 <p>${product.readCount}</p>
-		</span>
+			즉시구매 : ${product.dirPrice}
+		</span><br>
+		<span>
+			조회 수 : ${product.readCount}
+		</span><br>
 		<span>
 			판매자
 			<%-- <p>${??.id }</p> --%>

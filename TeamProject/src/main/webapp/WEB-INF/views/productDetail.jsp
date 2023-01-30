@@ -8,9 +8,48 @@
 <title>상품 상세보기 - ${product.title}</title>
 </head>
 <body>
-<form action="Biding" method="POST" onsubmit="return check()">
+<!-- 남은시간 표시 -->
+	<script type="text/javascript">
+		function getTime() {
+			let target = new Date('${product.regdate}');
+			let today = new Date();
+			gap = target - today;
+			let d = Math.floor(gap / (1000 * 60 * 60 * 24)); // 일
+			let h = Math.floor((gap / (1000 * 60 * 60)) % 24); // 시
+		 	let m = Math.floor((gap / (1000 * 60)) % 60); // 분
+		  	let s = Math.floor((gap / 1000) % 60); // 초
+		  	if (gap <= 0) {
+			    location.href='endPage';
+			    title.innerText = "경매가 마감되었습니다.";
+			    timer.innerText = "";
+			    document.getElementsByClassName('btn')[0].setAttribute('style','display:none');
+			    document.getElementsByClassName('btn')[1].setAttribute('style','display:none');
+			    document.getElementsByClassName('btn')[2].setAttribute('style','display:none');
+		  	} else {
+		    	title.innerText = "마감까지";
+		    	timer.innerText = d+"일 "+h+"시간 "+m+"분 "+s+"초 남았습니다.";
+		  	}
+		}
+		const body = document.querySelector("body");
+		const timer = document.createElement("h3");
+		const title = document.createElement("h3");
+		body.prepend(timer);
+		body.prepend(title);
+		let gap;
+		function gapT(){
+			
+		}
+
+		function init() {
+		  getTime();
+		  setInterval(getTime, 1000);
+		}
+		init();
+	</script>
+
+<form action="biding" method="POST" onsubmit="return check()">
 <input type="hidden" name="id" value="test@gmail.com">
-<input type="hidden" name="idx" value="${product.num }">
+<input type="hidden" name="num" value="${product.num }">
 	<div>
 		<div>
 			<h6><a href="/index.html">홈</a></h6>
@@ -33,7 +72,6 @@
 			<c:otherwise>
 				<script type="text/javascript">
 					let image = document.getElementById('image');
-					//01_python.jpg,02_android.jpg,03_nodejs.jpg,,
 					let arr = '${product.productPic}'.split(',');
 					
 					for(let s = 0 ;s< arr.length;s++){
@@ -64,14 +102,14 @@
 				<td></td>
 			</tr>
 			<tr>
-				<th>경매가</th>
+				<th>현재 경매가</th>
 				<td>${product.strPrice}
 					<input type="hidden" name="strPrice" id="strPrice" value="${product.strPrice}">
 				</td>
 			</tr>
 			<tr>
 				<th>입찰 단위</th>
-				<td>${product.bidUnit}
+					<td id="bidUnit">
 					<input type="hidden" name="bidUnit" id="bidUnit">
 				</td>
 			</tr>
@@ -90,57 +128,20 @@
 		</table>
 		
 		<tbody>
-			<p>배송방법</p>
-			<p>배송비용</p>
-			<p>묶음배송</p>
+			<tr>
+				<th>배송방법</th>
+				<td>직접수령 / 택배(등기)</td>
+			</tr>
+			<tr>
+				<th>배송비용</th>
+				<td>선불 : 4000원 / 착불 : 5000원</td>
+			</tr>
 		</tbody>
-		
-		<tbody>
-			<p>원산지</p>
-		</tbody>
-		
-		<table>
-			<p>판매자 ID</p>
-			<p>판매자 신용도</p>
-			<p>판매자 다른 물건</p>
-			<p>판매자 구매후기</p>
-		</table>
-		
-		<table>
-			<tr>
-				<th>입찰자</th>
-				<td>  </td>
-			</tr>
-			<tr>
-				<th>입찰금액</th>
-				<td> ${product.strPrice} </td>
-			</tr>
-			<tr>
-				<th>입찰시간</th>
-				<td> ${biding.bidTime} </td>
-			</tr>
-		</table>
-		<button type="submit" id="btn1" class="btn">입찰하기</button>
-		<button type="button" class="btn" onclick="location.href='one?dirPrice=${product.num}'">바로 구매하기</button>
-		<button type="button" class="btn" onclick="location.href='??'">관심물품</button>
-		<button type="button" class="btn" onclick="location.href='??'">문의하기</button>
 	</div>
-	
-	<div>
-		<ul>
-			<li>
-				<a>물품정보</a>
-			</li>
-			<li>
-				<a>물품문의</a>
-			</li>
-			<li>
-				<a>배송/반품</a>
-			</li>
-			<li>
-				<a>영수증 발행</a>
-			</li>
-		</ul>
+	<div>		
+		<button type="submit" id="btn1" class="btn">입찰하기</button>
+		<button type="button" class="btn" onclick="location.href='??'">관심물품 등록하기</button>
+		<button type="button" class="btn" onclick="location.href='??'">문의하기</button>
 	</div>
 	<input type="image">
 	
@@ -149,76 +150,44 @@
 
 </form>
 <script type="text/javascript">
+	let strPrice = parseInt(document.getElementById('strPrice').value);
+	let bidUnit = document.getElementById('bidUnit');
+	if(1000000000 <= strPrice){
+		bidUnit = 10000000;
+	}else if(300000000 <= strPrice){
+		bidUnit.innerHTML = 5000000;
+	}else if(100000000 <= strPrice){
+		bidUnit.innerHTML = 2500000;
+	}else if(10000000 <= strPrice){
+		bidUnit.innerHTML = 1000000;
+	}else if(5000000 <= strPrice){
+		bidUnit.innerHTML = 500000;
+	}else if(1000000 <= strPrice){
+		bidUnit.innerHTML = 100000;
+	}else if(500000 <= strPrice){
+		bidUnit.innerHTML = 50000;
+	}else if(100000 <= strPrice){
+		bidUnit.innerHTML = 10000;
+	}else if(10000 <= strPrice){
+		bidUnit.innerHTML = 5000;
+	}else if(strPrice < 10000){
+		bidUnit.innerHTML = 1000;
+	}
 	
-
 	function check(){
-		let strPrice = parseInt(document.getElementById('strPrice').value);
-		let bidUnit = parseInt(document.getElementById('bidUnit').value);
-		alert(strPrice);
-		
-		if(100000000 <= strPrice){
-			bidUnit = 5000000;
-		}else if(50000000 <= strPrice < 100000000){
-			bidUnit = 1000000;
-		}else if(10000000 <= strPrice < 50000000){
-			bidUnit = 500000;
-		}else if(5000000 <= strPrice < 10000000){
-			bidUnit = 500000;
-		}else if(1000000 <= strPrice < 5000000){
-			bidUnit = 100000;
-		}else if(100000 <= strPrice < 1000000){
-			bidUnit = 50000;
-		}else if(10000 <= strPrice < 100000){
-			bidUnit = 10000;
-		}else if(strPrice < 10000){
-			bidUnit = 5000;
-		}
-		
+		strPrice = parseInt(document.getElementById('strPrice').value);
+		let bidUnit = 0;
+		bidUnit = parseInt(document.getElementById('bidUnit').textContent);
+		alert('입찰하시면 취소 할 수 없습니다.');
 		let flag = confirm(strPrice+bidUnit+'원에 정말 입찰하시겠습니까?');
-		if(!flag){
+		if(flag){
 			document.getElementById('strPrice').setAttribute('value',strPrice+bidUnit);
-			return false;
+			return true;
 		}
+		return false;
 	}
 	
 </script>
-<!-- 남은시간 표시 -->
-		<script type="text/javascript">
-		
-				const body = document.querySelector("body");
-				const timer = document.createElement("h3");
-				const title = document.createElement("h3");
-				body.prepend(timer);
-				body.prepend(title);
-				let gap;
-				function getTime() {
-					let target = new Date('${product.regdate}');
-					let today = new Date();
-					gap = target - today;
-					let d = Math.floor(gap / (1000 * 60 * 60 * 24)); // 일
-					let h = Math.floor((gap / (1000 * 60 * 60)) % 24); // 시
-				 	let m = Math.floor((gap / (1000 * 60)) % 60); // 분
-				  	let s = Math.floor((gap / 1000) % 60); // 초
-				  	if (gap <= 0) {
-					    title.innerText = "경매가 마감되었습니다.";
-					    timer.innerText = "";
-					    document.getElementsByClassName('btn')[0].setAttribute('style','display:none');
-					    document.getElementsByClassName('btn')[1].setAttribute('style','display:none');
-					    document.getElementsByClassName('btn')[2].setAttribute('style','display:none');
-				  	} else {
-				    	title.innerText = "마감까지";
-				    	timer.innerText = d+"일 "+h+"시간 "+m+"분 "+s+"초 남았습니다.";
-				  	}
-				}
-				function gapT(){
-					
-				}
 
-				function init() {
-				  getTime();
-				  setInterval(getTime, 1000);
-				}
-				init();
-		</script>
 </body>
 </html>

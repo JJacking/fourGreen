@@ -11,34 +11,43 @@ public class AuctionDto {
 	private String productPic;
 	private int strPrice;
 	private int dirPrice;
-	private int bidUnit;
 	private String content;
 	private Timestamp regdate;
 	private int bidCount;
 	private int readCount;
 	private Timestamp writeDate;
 	private String category;
+	private int endSale;
+	
 	
 	public AuctionDto() {
 		
 	}
 	
-	public AuctionDto(int num, String title, String productPic, int strPrice, int dirPrice, int bidUnit, String content,
-			Timestamp regdate, int bidCount, int readCount, Timestamp writeDate, String category) {
+	public AuctionDto(int num, String title, String productPic, int strPrice, int dirPrice, String content,
+			Timestamp regdate, int bidCount, int readCount, Timestamp writeDate, String category, int endSale) {
 		this.num = num;
 		this.title = title;
 		this.productPic = productPic;
 		this.strPrice = strPrice;
 		this.dirPrice = dirPrice;
-		this.bidUnit = bidUnit;
 		this.content = content;
 		this.regdate = regdate;
 		this.bidCount = bidCount;
 		this.readCount = readCount;
 		this.writeDate = writeDate;
 		this.category = category;
+		this.endSale = endSale;
 	}
 	
+	public int getEndSale() {
+		return endSale;
+	}
+
+	public void setEndSale(int endSale) {
+		this.endSale = endSale;
+	}
+
 	public int getNum() {
 		return num;
 	}
@@ -68,12 +77,6 @@ public class AuctionDto {
 	}
 	public void setDirPrice(int dirPrice) {
 		this.dirPrice = dirPrice;
-	}
-	public int getBidUnit() {
-		return bidUnit;
-	}
-	public void setBidUnit(int bidUnit) {
-		this.bidUnit = bidUnit;
 	}
 	public String getContent() {
 		return content;

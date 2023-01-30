@@ -17,19 +17,23 @@
 </delete>
 
 <insert id="insertProduct" parameterType="product">
-	INSERT INTO product VALUES(product_seq.nextval, #{title}, #{productPic}, #{strPrice}, #{dirPrice}, #{bidUnit}, #{content}, #{regdate}, 0, 0, sysdate, #{category})
+	INSERT INTO product VALUES(product_seq.nextval, #{title}, #{productPic}, #{strPrice}, #{dirPrice}, #{content}, #{regdate}, 0, 0, sysdate, #{category}, 1)
 </insert>
 
 <update id="readCount" parameterType="int">
 	UPDATE product SET readCount = readCount+1 WHERE num=#{num}
 </update>
 
+<update id="direct" parameterType="int">
+	UPDATE product SET endSale = 0 WHERE num=#{num} 
+</update>
+
 <update id="biding" parameterType="java.util.Arrays">
-	UPDATE product SET strPrice=${array[0]}, bidCount = bidCount+1, bidTime=sysdate WHERE num=${array[1]}
+	UPDATE product SET strPrice=${array[0]}, bidCount = bidCount+1 WHERE num=${array[1]}
 </update>
 
 <insert id="insertCustomer" parameterType="customer">
-	insert into customer values('','','','',)
+	insert into customer values(customer_seq.nextval,#{num},#{memberId},#{bidMoney},sysdate)
 </insert>
 
 <select id="selectAllNumAuction" resultType="int">
@@ -42,7 +46,7 @@
 
 <select id="selectTargetAuctionByPaging" parameterType="java.util.Arrays" resultType="product">
 SELECT * FROM 
-	(SELECT ROWNUM as nick, num, title, productPic, strPrice, dirPrice, bidUnit, content, regdate, bidCount, readcount, writedate, category 
+	(SELECT ROWNUM as nick, num, title, productPic, strPrice, dirPrice, content, regdate, bidCount, readcount, writedate, category, endSale
 	FROM (SELECT * FROM product 
 		<if test="array[0] != null or array[4] != null">
 			where
@@ -54,7 +58,7 @@ SELECT * FROM
 			and
 		</if>
 		<if test="array[4] != null">
-			regdate ${array[4]} to_date(sysdate)
+			regdate ${array[4]} #{array[5]}
 		</if> 	
 		<if test="array[1] != null">
 			ORDER BY ${array[1]} ${array[2]}

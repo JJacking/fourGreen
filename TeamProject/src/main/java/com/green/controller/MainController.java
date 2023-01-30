@@ -2,10 +2,13 @@ package com.green.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,9 +17,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.green.dao.ProductDAO;
 import com.green.dto.AuctionDto;
+import com.green.dto.CustomerDto;
 
 @Controller
 public class MainController {
@@ -94,6 +99,9 @@ public class MainController {
 		AuctionDto dto = productDAO.selectOne(num);
 		model.addAttribute("list",productDAO.selectAllAuction());
 		model.addAttribute("product",dto);
+		if(System.currentTimeMillis()-dto.getRegdate().getTime()>0) {
+			return "endPage";  
+		}
 		return "productDetail";  
 	}
 	
@@ -105,30 +113,38 @@ public class MainController {
 	
 	@PostMapping("/newAuction")
 	public String newProduct(@RequestParam String title,@RequestParam int strPrice,
-			@RequestParam int dirPrice,@RequestParam int bidUnit,
+			@RequestParam int dirPrice,
 			@RequestParam String content,@RequestParam String regdate, @RequestParam String category,
 		    @RequestParam MultipartFile[] productPic) throws IllegalStateException, IOException {
+		
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+		
 		AuctionDto dto = new AuctionDto();
 		dto.setTitle(title);
 		dto.setStrPrice(strPrice);
 		dto.setDirPrice(dirPrice);
-		dto.setBidUnit(bidUnit);
 		dto.setContent(content);
 		dto.setRegdate(regdate);
 		dto.setCategory(category);
 		String str = "";
 		for(int i =0; i<productPic.length;i++) {
-			str += productPic[i].getOriginalFilename()+",";
-			File file = new File("C:\\UploadImage\\AuctionList",productPic[i].getOriginalFilename());
-			if(file.exists()) {
-				file = new File("C:\\UploadImage\\AuctionList","1"+productPic[i].getOriginalFilename());
-			}
+			Calendar dateTime = Calendar.getInstance();
+			String uniqueId = sdf.format(dateTime.getTime())+RandomStringUtils.randomAlphanumeric(10);
+			String fileName = uniqueId+"_"+productPic[i].getOriginalFilename();
+			str += fileName+",";
+			File file = new File("C:\\UploadImage\\AuctionList",fileName);
 			productPic[i].transferTo(file);
 		}
 		dto.setProductPic(str);
 		productDAO.insertProduct(dto);
 		
 		return "redirect:/";
+	}
+	
+	@GetMapping("/directBuy")
+	public String directBuy() {
+		
+		return "";
 	}
 	
 	@RequestMapping("/deleteProduct")
@@ -138,20 +154,38 @@ public class MainController {
 		return "redirect:/";
 	}
 	
-	@RequestMapping("/productList")
-	public String costPrice(AuctionDto dto) {
+//	@RequestMapping("/productList")
+//	public String costPrice(AuctionDto dto, CustomerDto cdto) {
+//		productDAO.insertCustomer(cdto);
+//		productDAO.insertProduct(dto);
+//		
+//		return "redirect:/";
+//	}
+
+	@PostMapping("/biding")
+	public String biding(int strPrice, CustomerDto cdto, @RequestParam int num, RedirectAttributes attributes) {
+		cdto.setNum(num);
+		cdto.setBidMoney(strPrice+"");
+		cdto.setMemberId("test");
+		productDAO.insertCustomer(cdto);
+		attributes.addAttribute("num",num);
 		
-		
-		
-		productDAO.deleteProduct(dto);
-		
-		return "redirect:/";
+		return "redirect:/selectOne";
 	}
 	
-//	public (){
-//		productDAO.insertCustomer(dto);
-//	}
 	
+	@GetMapping("/one")
+	public String direct(@RequestParam int num, RedirectAttributes attributes) {
+		productDAO.direct(num);
+		attributes.addAttribute("num",num);
+		
+		return "redirect:/selectOne";
+	}
+	
+	@GetMapping("/endPage")
+	public String endPage() {
+		return "endPage";
+	}
 	
 	
 	

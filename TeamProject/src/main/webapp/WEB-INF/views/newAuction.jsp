@@ -14,7 +14,7 @@
 	<table id="tb">
 		<tr>
 			<th>물품 이름</th>
-			<td> <input type="text" name="title"> </td>
+			<td> <input type="text" name="title" required> </td>
 		</tr>
 		<tr>
 			<th>카테고리 설정</th>
@@ -33,7 +33,7 @@
 			<th>이미지 등록</th>
 			<td>
 				<button type="button" onclick="add()">추가</button>
-				<input type="file" name="productPic" multiple="multiple"><br>
+				<input type="file" name="productPic" multiple="multiple" required><br>
 			</td>
 		</tr>
 		<tr>
@@ -46,9 +46,9 @@
 	<table>
 	<tr>
 		<th>시작가</th>
-		<td> <input type="number" name="strPrice"> </td>
+		<td> <input type="number" name="strPrice" required> </td>
 		<th>즉시 구매가</th>
-		<td> <input type="number" name="dirPrice"> </td>
+		<td> <input type="number" name="dirPrice" required> </td>
 	</tr>
 	<tr>
 		<th>경매 기간</th>
@@ -57,7 +57,7 @@
 			<fmt:formatDate value="${now}" pattern="yyyy-MM-dd HH:mm" var="now" />
 			<c:out value="${now}" />
 			<p>부터 </p>
-			<input type="datetime-local" name="regdate" id="dateTime">
+			<input type="datetime-local" name="regdate" id="dateTime" required>
 			<p>까지 </p>
 		</td>
 	</tr>
