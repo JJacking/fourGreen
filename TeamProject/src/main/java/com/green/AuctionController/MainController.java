@@ -172,7 +172,7 @@ public class MainController {
 		
 		return "redirect:/selectOne";
 	}
-	
+	////
 	
 	@GetMapping("/one")
 	public String direct(@RequestParam int num, RedirectAttributes attributes) {
