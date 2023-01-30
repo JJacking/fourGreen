@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 
 function removeCheck() {
@@ -18,7 +17,6 @@ function removeComment(cno,num) {
       return false;
   	}
 }
-=======
 
 
 function removeCheck() {
@@ -38,4 +36,3 @@ function removeComment(cno,num) {
       return false;
   	}
 }
->>>>>>> c07268bb383b7f35c83e9f26579692aea86ebbfc
