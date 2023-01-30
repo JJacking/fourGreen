@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
@@ -11,17 +10,3 @@
 		<typeAlias type="com.green.vo.ManagerVo" alias="managerVo"/>
 	</typeAliases>
 </configuration>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE configuration
-  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-  "https://mybatis.org/dtd/mybatis-3-config.dtd">
-
-<configuration>
-	<typeAliases>
-		<typeAlias type="com.green.vo.BoardVo" alias="boardVo"/>
-		<typeAlias type="com.green.vo.CommentVo" alias="commentVo"/>
-		<typeAlias type="com.green.vo.ManagerVo" alias="managerVo"/>
-	</typeAliases>
-</configuration>
->>>>>>> c07268bb383b7f35c83e9f26579692aea86ebbfc

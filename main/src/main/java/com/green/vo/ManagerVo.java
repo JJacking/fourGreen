@@ -1,4 +1,3 @@
-
 package com.green.vo;
 
 import java.sql.Timestamp;

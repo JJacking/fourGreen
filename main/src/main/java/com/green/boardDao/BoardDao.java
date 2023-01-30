@@ -1,4 +1,3 @@
-
 package com.green.boardDao;
 
 import java.util.List;
@@ -98,3 +97,4 @@ public class BoardDao {
 		sqlSession.delete("mybatis.mapper.board.boardDelete",MgNum);
 	}
 }
+
