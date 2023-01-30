@@ -27,6 +27,7 @@ width: 10%;
 .col5{
   width: 10%;
 }
+
 </style>
 </head>
 <body>
@@ -87,6 +88,7 @@ width: 10%;
 			</tr>
 		</c:forEach>
 		</table>
+		</div>
 			<p><a href="boardWrite">게시글 등록</a><p>
 			
 	
@@ -145,5 +147,11 @@ width: 10%;
 		</c:if>
 	</div>
 </div> --%>
+<hr>
+<footer>
+  <div class="footer">
+    <a href="https://github.com/JJacking/lastPj.git" style="text-decoration: none; list-style: none; color: white;" >@github 저장소 바로가기</a>
+  </div>
+</footer>
 </body>
 </html>

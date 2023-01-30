@@ -11,6 +11,34 @@
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
+<div class="nav">
+  <div><h2><a href="#">logo</a></h2></div>
+     <ul class="nav-menu">
+      <li><a href="#">물품보기</a></li>
+      <li><a href="#">물품등록</a></li>
+      <li>
+        <a href="#">게시판</a>
+          <ul id="sub-menu">
+            <li><a href="/board/managerBoardList">공지사항</a></li>
+            <li><a href="/board/boardList">자유게시판</a></li>
+          </ul>
+      </li>
+      <li><a href="#">고객센터</a></li>
+     </ul>
+    <%--  <c:if test="${}"> --%>
+        <div class="loginBtn">
+            <button type="button">로그인</button>
+            <button type="button">회원가입</button>
+        </div>
+    <%-- </c:if> --%>
+   <%--  <c:if test="${! }">
+        <p>${}님 환영합니다</p>
+        <p><a href="#">내정보</a></p>
+        <p><a href="#">포인트충전/조회</a></p>
+        <p><a href="#">낙찰내역</a></p>
+        <p><a href="#">응찰내역</a></p>
+    </c:if> --%>
+</div>
     <div id="boardTb">
       <h2>공지사항</h2>
       <table>
@@ -20,7 +48,7 @@
         </tr>
         <tr>
           <th>닉네임</th>
-          <td>${mVo.MgName}</td>
+          <td>${mVo.mgName}</td>
           <th>작성일</th>
           <td>${mVo.wirteDate}</td>
           <th>조회수</th>
@@ -32,14 +60,20 @@
         </tr>
         <tr>
           	<td colspan="6" style="border: white; text-align:center">
-		          <button type="button" onclick="location.href='managerUpdate?MgNum=${mVo.MgNum}'">
+		          <button type="button" onclick="location.href='managerUpdate?mgNum=${mVo.mgNum}'">
 		         	 게시글 수정</button>
 		          <button type="button" onclick="removeCheck(MgNum)">
 		         	게시글 삭제</button>
-		          <button type="button" onclick="location.href='boardList'">목록 보기</button>
+		          <button type="button" onclick="location.href='managerBoardList'">목록 보기</button>
         	</td>
         </tr>
       </table>
      </div>
+     <hr>
+<footer>
+  <div class="footer">
+    <a href="https://github.com/JJacking/lastPj.git" style="text-decoration: none; list-style: none; color: white;" >@github 저장소 바로가기</a>
+  </div>
+</footer>
   </body>
   </html>

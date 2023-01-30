@@ -71,13 +71,13 @@ public class BoardService {
 	}
 	
 	//공지사항조회수
-	public void readCountMgBoard(int MgNum) {
-		boardDao.readCountMgBoard(MgNum);
+	public void readCountMgBoard(int mgNum) {
+		boardDao.readCountMgBoard(mgNum);
 	}
 	
 	//공지사항상세보기
-	public ManagerVo selectByMgNum(int MgNum) {
-		return boardDao.selectByMgNum(MgNum);
+	public ManagerVo selectByMgNum(int mgNum) {
+		return boardDao.selectByMgNum(mgNum);
 	}
 	
 	//공지사항글쓰기
@@ -91,7 +91,7 @@ public class BoardService {
 	}
 	
 	//공지사항글삭제
-	public void managerDelete(int MgNum) {
-		boardDao.managerDelete(MgNum);
+	public void managerDelete(int mgNum) {
+		boardDao.managerDelete(mgNum);
 	}
 }

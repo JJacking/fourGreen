@@ -122,17 +122,16 @@ public class BoardController {
 	}
 	
 	//관리자상세게시판(상세글)
-	@RequestMapping("/managerWrite")
-	public ModelAndView managerDetail(@RequestParam int MgNum ,Model model) {
-		boardService.readCount(MgNum);
-		ManagerVo mVo = boardService.selectByMgNum(MgNum);
+	@RequestMapping("/managerDetail")
+	public ModelAndView managerDetail(@RequestParam int mgNum ,Model model) {
+		boardService.readCountMgBoard(mgNum);
+		ManagerVo mVo = boardService.selectByMgNum(mgNum);
 		return new ModelAndView("board/managerDetail","mVo", mVo);
 	}
 	
 	//공지사항쓰기
 	@GetMapping("/managerWrite")
-	public String managerWrite(/*@ModelAttribute BoardVo board*/) {
-//			boardDao.boardWrite(board);
+	public String managerWrite() {
 		return "board/managerWrite";
 	}
 	
@@ -144,25 +143,25 @@ public class BoardController {
 	}
 	
 	//게시판수정
-	@GetMapping("/ManagerUpdate")
-	public String ManagerUpdate(Model model,@RequestParam int MgNum) {
-		ManagerVo mVo = boardService.selectByMgNum(MgNum);
+	@GetMapping("/managerUpdate")
+	public String managerUpdate(Model model,@RequestParam int mgNum) {
+		ManagerVo mVo = boardService.selectByMgNum(mgNum);
 		model.addAttribute("mVo",mVo);
-		return "board/ManagerUpdateForm";
+		return "board/managerUpdateForm";
 	}
 	
 	//게시판수정
-	@PostMapping("/ManagerUpdate")
-	public String ManagerUpdate(@ModelAttribute ManagerVo mVo,@RequestParam int MgNum,Model model) {
+	@PostMapping("/managerUpdate")
+	public String ManagerUpdate(@ModelAttribute ManagerVo mVo,@RequestParam int mgNum,Model model) {
 		boardService.managerUpdate(mVo);
-		model.addAttribute("MgNum",MgNum);
-		return "redirect:/ManagerDetail";
+		model.addAttribute("MgNum",mgNum);
+		return "redirect:/managerDetail";
 	}
 	
 	//공지사항삭제
 	@RequestMapping("/managerDelete")
-	public String managerDelete(@RequestParam int MgNum) {
-		boardService.managerDelete(MgNum);
+	public String managerDelete(@RequestParam int mgNum) {
+		boardService.managerDelete(mgNum);
 		return "redirect:/managerBoardList";
 	}
 	

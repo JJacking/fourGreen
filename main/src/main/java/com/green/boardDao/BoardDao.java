@@ -73,13 +73,13 @@ public class BoardDao {
 	}
 	
 	//상세게시판(관리자페이지)
-	public ManagerVo selectByMgNum(int MgNum) {
-		return sqlSession.selectOne("mybatis.mapper.manager.selectByMgNum", MgNum);
+	public ManagerVo selectByMgNum(int mgNum) {
+		return sqlSession.selectOne("mybatis.mapper.manager.selectByMgNum", mgNum);
 	}
 
 	//조회수증가(관리자페이지)
-	public void readCountMgBoard(int MgNum) {
-		sqlSession.selectOne("mybatis.mapper.manager.readCountMgBoard", MgNum);
+	public void readCountMgBoard(int mgNum) {
+		sqlSession.selectOne("mybatis.mapper.manager.readCountMgBoard", mgNum);
 	}
 	
 	//게시판등록(관리자페이지)
@@ -93,8 +93,8 @@ public class BoardDao {
 	}
 	
 	//게시판 삭제(관리자페이지)
-	public void managerDelete(int MgNum) {
-		sqlSession.delete("mybatis.mapper.board.boardDelete",MgNum);
+	public void managerDelete(int mgNum) {
+		sqlSession.delete("mybatis.mapper.board.boardDelete",mgNum);
 	}
 }
 

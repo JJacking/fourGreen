@@ -3,42 +3,29 @@ package com.green.vo;
 import java.sql.Timestamp;
 
 public class ManagerVo {
-	private int MgNum; 
-	private String MgName; 
+	private int mgNum; 
+	private String mgName; 
 	private String title; 
 	private String content; 
 	private int readCount; 
 	private Timestamp wirteDate;
 	
 	public ManagerVo() {}
-	
-	
-	
-	public ManagerVo(int mgNum, String mgName, String title, String content, int readCount, Timestamp wirteDate) {
-		MgNum = mgNum;
-		MgName = mgName;
-		this.title = title;
-		this.content = content;
-		this.readCount = readCount;
-		this.wirteDate = wirteDate;
-	}
-
-
 
 	public int getMgNum() {
-		return MgNum;
+		return mgNum;
 	}
 
 	public void setMgNum(int mgNum) {
-		MgNum = mgNum;
+		this.mgNum = mgNum;
 	}
 
 	public String getMgName() {
-		return MgName;
+		return mgName;
 	}
 
 	public void setMgName(String mgName) {
-		MgName = mgName;
+		this.mgName = mgName;
 	}
 
 	public String getTitle() {
@@ -72,7 +59,7 @@ public class ManagerVo {
 	public void setWirteDate(Timestamp wirteDate) {
 		this.wirteDate = wirteDate;
 	}
-
+	
 	
 	
 }

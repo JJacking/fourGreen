@@ -8,6 +8,26 @@
 <meta charset="UTF-8">
 <title>공지사항</title>
 <link type="text/css" rel="stylesheet" href="./resources/style/board.css">
+<style>
+p{
+	text-align: right;
+}
+.col1{
+width: 10%;
+}
+.col2{
+  width: 57%;
+}
+.col3{
+  width: 13%;
+}
+.col4{
+  width: 10%;
+}
+.col5{
+  width: 10%;
+}
+</style>
 </head>
 <body>
 <div class="nav">
@@ -38,29 +58,42 @@
         <p><a href="#">응찰내역</a></p>
     </c:if> --%>
 </div>
-<div id="boardTb" align="center">
+<div id="boardTb">
 	<h2>공지사항</h2>
+	<hr>
+	<br>
 	<table>
+		<colgroup>
+			<col class="col1">
+			<col class="col2">
+			<col class="col3">
+			<col class="col4">
+			<col class="col5">
+		</colgroup>
 		<tr>
 			<th>번호</th>
 			<th>제목</th>
 			<th>작성자</th>
-			<th>조회수</th>
 			<th>작성일</th>
+			<th>조회수</th>
 		</tr>
 		<c:forEach items="${manager}" var="manager">
 		<tr>
-			<td>${manager.MgNum}</td>
-			<td><a href="managerDetail?MgNum=${manager.MgNum}">${manager.title}</a></td>
-			<td>${manager.MgName}</td>
+			<td>${manager.mgNum}</td>
+			<td><a href="managerDetail?mgNum=${manager.mgNum}">${manager.title}</a></td>
+			<td>${manager.mgName}</td>
 			<td> <fmt:formatDate value="${manager.wirteDate}"/> </td>
 			<td>${manager.readCount}</td>
 		</tr>
 		</c:forEach>
-		<tr>
-			<td colspan="5" style="border: white; text-align: right">
-				<a href="managerWrite">게시글 등록</a>
-			</td>
-		</tr>
-	</table>
+		</table>
+			<p><a href="managerWrite">게시글 등록</a></p>
+	<hr>
+</div>
+</body>
+<footer>
+  <div class="footer">
+    <a href="https://github.com/JJacking/lastPj.git" style="text-decoration: none; list-style: none; color: white;" >@github 저장소 바로가기</a>
+  </div>
+</footer>
 </html>
