@@ -1,4 +1,4 @@
-package com.green.dao;
+package com.green.boardDao;
 
 import java.util.List;
 

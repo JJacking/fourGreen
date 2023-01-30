@@ -1,4 +1,4 @@
-package com.green.controller;
+package com.green.boardController;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.green.service.BoardService;
+import com.green.boardService.BoardService;
 import com.green.vo.BoardVo;
 import com.green.vo.CommentVo;
 import com.green.vo.ManagerVo;
