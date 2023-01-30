@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 Manifest-Version: 1.0
 Built-By: GREEN
 Build-Jdk: 1.8.0_341
 Created-By: Maven Integration for Eclipse
 
+=======
+Manifest-Version: 1.0
+Built-By: GREEN
+Build-Jdk: 1.8.0_341
+Created-By: Maven Integration for Eclipse
+
+>>>>>>> c07268bb383b7f35c83e9f26579692aea86ebbfc
