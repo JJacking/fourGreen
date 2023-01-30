@@ -1,4 +1,4 @@
-package com.green.dto;
+package com.green.AuctionDto;
 
 import java.sql.Timestamp;
 import java.text.ParseException;
@@ -10,7 +10,7 @@ public class AuctionDto {
 	private String title;
 	private String productPic;
 	private int strPrice;
-	private int dirPrice;
+	private String memberId;
 	private String content;
 	private Timestamp regdate;
 	private int bidCount;
@@ -24,13 +24,13 @@ public class AuctionDto {
 		
 	}
 	
-	public AuctionDto(int num, String title, String productPic, int strPrice, int dirPrice, String content,
+	public AuctionDto(int num, String title, String productPic, int strPrice, String memberId, String content,
 			Timestamp regdate, int bidCount, int readCount, Timestamp writeDate, String category, int endSale) {
 		this.num = num;
 		this.title = title;
 		this.productPic = productPic;
 		this.strPrice = strPrice;
-		this.dirPrice = dirPrice;
+		this.memberId = memberId;
 		this.content = content;
 		this.regdate = regdate;
 		this.bidCount = bidCount;
@@ -71,12 +71,6 @@ public class AuctionDto {
 	}
 	public void setStrPrice(int strPrice) {
 		this.strPrice = strPrice;
-	}
-	public int getDirPrice() {
-		return dirPrice;
-	}
-	public void setDirPrice(int dirPrice) {
-		this.dirPrice = dirPrice;
 	}
 	public String getContent() {
 		return content;
@@ -125,6 +119,15 @@ public class AuctionDto {
 	public void setCategory(String category) {
 		this.category = category;
 	}
+
+	public String getMemberId() {
+		return memberId;
+	}
+
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
+	}
+	
 	
 	
 }

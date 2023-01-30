@@ -4,8 +4,8 @@
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias type="com.green.dto.AuctionDto" alias="product"/>
-		<typeAlias type="com.green.dto.CustomerDto" alias="customer"/>
+		<typeAlias type="com.green.AuctionDto.AuctionDto" alias="product"/>
+		<typeAlias type="com.green.AuctionDto.CustomerDto" alias="customer"/>
 	</typeAliases>
 	
 	

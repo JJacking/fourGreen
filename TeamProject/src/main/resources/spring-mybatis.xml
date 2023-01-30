@@ -48,7 +48,7 @@
 	</bean>
 	
 	<!-- 네번째 빈 : MemberDao -->
-	<bean id="productDAO" class="com.green.dao.ProductDAO"></bean>
+	<bean id="productDAO" class="com.green.AuctionDao.ProductDAO"></bean>
 	
 	
 </beans>

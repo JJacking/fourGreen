@@ -17,7 +17,7 @@
 </delete>
 
 <insert id="insertProduct" parameterType="product">
-	INSERT INTO product VALUES(product_seq.nextval, #{title}, #{productPic}, #{strPrice}, #{dirPrice}, #{content}, #{regdate}, 0, 0, sysdate, #{category}, 1)
+	INSERT INTO product VALUES(product_seq.nextval, #{title}, #{productPic}, #{strPrice}, #{memberId}, #{content}, #{regdate}, 0, 0, sysdate, #{category}, 1)
 </insert>
 
 <update id="readCount" parameterType="int">
@@ -46,7 +46,7 @@
 
 <select id="selectTargetAuctionByPaging" parameterType="java.util.Arrays" resultType="product">
 SELECT * FROM 
-	(SELECT ROWNUM as nick, num, title, productPic, strPrice, dirPrice, content, regdate, bidCount, readcount, writedate, category, endSale
+	(SELECT ROWNUM as nick, num, title, productPic, strPrice, memberId, content, regdate, bidCount, readcount, writedate, category, endSale
 	FROM (SELECT * FROM product 
 		<if test="array[0] != null or array[4] != null">
 			where

@@ -1,4 +1,4 @@
-package com.green.dao;
+package com.green.AuctionDao;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -9,8 +9,8 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.green.dto.AuctionDto;
-import com.green.dto.CustomerDto;
+import com.green.AuctionDto.AuctionDto;
+import com.green.AuctionDto.CustomerDto;
 
 import oracle.jdbc.logging.annotations.Log;
 

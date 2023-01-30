@@ -123,7 +123,7 @@
 			입찰 수 : ${product.bidCount}
 		</span><br>
 		<span>
-			즉시구매 : ${product.dirPrice}
+			판매자 ID : ${product.memberId}
 		</span><br>
 		<span>
 			조회 수 : ${product.readCount}

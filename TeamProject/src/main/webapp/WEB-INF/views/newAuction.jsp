@@ -9,7 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="newAuction" method="post" enctype="multipart/form-data">
+<form action="newAuction" method="post" onsubmit="return submit2()" enctype="multipart/form-data">
+<input type="hidden" name="memberId" value="teste">
 	<h2>물품 정보</h2>
 	<table id="tb">
 		<tr>
@@ -47,8 +48,6 @@
 	<tr>
 		<th>시작가</th>
 		<td> <input type="number" name="strPrice" required> </td>
-		<th>즉시 구매가</th>
-		<td> <input type="number" name="dirPrice" required> </td>
 	</tr>
 	<tr>
 		<th>경매 기간</th>
@@ -71,6 +70,18 @@
 	<button type="button" onclick="location.href='/TeamProject'">목록으로</button>
 </form>
 <script type="text/javascript">
+	function submit2() {
+		
+		let flag = confirm('한번 등록한 상품은 수정/삭제가 불가능 합니다. 정말 등록하시겠습니까?');
+		if(flag) {
+			
+			return true;
+		}
+		return false;
+		
+		alert('한번 등록한 상품은 수정/삭제가 불가능 합니다.	정말 등록하시겠습니까?');
+	}
+
 	let tr = document.getElementById('addTr');
 	let cnt = 1;
 	function add(){
@@ -89,9 +100,7 @@
 		}
 	}
 	
-	function submit() {
-		alert('한번 등록한 상품은 수정/삭제가 불가능 합니다.	정말 등록하시겠습니까?');
-	}
+	
 </script>
 </body>
 </html>

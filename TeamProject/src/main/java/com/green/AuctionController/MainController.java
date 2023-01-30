@@ -1,4 +1,4 @@
-package com.green.controller;
+package com.green.AuctionController;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,9 +19,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.green.dao.ProductDAO;
-import com.green.dto.AuctionDto;
-import com.green.dto.CustomerDto;
+import com.green.AuctionDao.ProductDAO;
+import com.green.AuctionDto.AuctionDto;
+import com.green.AuctionDto.CustomerDto;
 
 @Controller
 public class MainController {
@@ -113,7 +113,7 @@ public class MainController {
 	
 	@PostMapping("/newAuction")
 	public String newProduct(@RequestParam String title,@RequestParam int strPrice,
-			@RequestParam int dirPrice,
+			@RequestParam String memberId,
 			@RequestParam String content,@RequestParam String regdate, @RequestParam String category,
 		    @RequestParam MultipartFile[] productPic) throws IllegalStateException, IOException {
 		
@@ -122,7 +122,7 @@ public class MainController {
 		AuctionDto dto = new AuctionDto();
 		dto.setTitle(title);
 		dto.setStrPrice(strPrice);
-		dto.setDirPrice(dirPrice);
+		dto.setMemberId(memberId);
 		dto.setContent(content);
 		dto.setRegdate(regdate);
 		dto.setCategory(category);

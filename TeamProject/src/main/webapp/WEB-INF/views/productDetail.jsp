@@ -114,8 +114,8 @@
 				</td>
 			</tr>
 			<tr>
-				<th>즉시구매</th>
-				<td>${product.dirPrice}</td>
+				<th>판매자 ID</th>
+				<td>${product.memberId}</td>
 			</tr>
 			<tr>
 				<th>입찰 수</th>
