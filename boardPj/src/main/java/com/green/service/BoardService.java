@@ -1,18 +1,21 @@
-package com.green.boardService;
+package com.green.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.green.boardDao.BoardDao;
+import com.green.dao.BoardDao;
 import com.green.vo.BoardVo;
 import com.green.vo.CommentVo;
 
 public class BoardService {
 	
-	
 	@Autowired
 	private BoardDao boardDao;
+	
+	public BoardService() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	//전체읽어오기
 	public List<BoardVo> selectAll(){

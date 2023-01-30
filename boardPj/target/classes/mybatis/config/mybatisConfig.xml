@@ -7,5 +7,6 @@
 	<typeAliases>
 		<typeAlias type="com.green.vo.BoardVo" alias="boardVo"/>
 		<typeAlias type="com.green.vo.CommentVo" alias="commentVo"/>
+		<typeAlias type="com.green.vo.MemberVO" alias="member"/>
 	</typeAliases>
 </configuration>
