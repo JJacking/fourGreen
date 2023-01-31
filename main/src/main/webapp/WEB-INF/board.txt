@@ -1,10 +1,4 @@
-drop table boardTbl;
-drop sequence boardTbl_seq;
-drop table boardComment;
-drop sequence boardComment_seq;
-drop table reBoardComment;
-drop SEQUENCE reBoardComment_seq;
- 
+
 CREATE table boardTbl(
     num number(20) PRIMARY KEY,
     nickName VARCHAR2(30),
@@ -88,3 +82,18 @@ select * from reBoardComment;
  
  delete from boardcomment where cno=1;
  commit;
+ 
+ CREATE table managerBoard(
+    MgNum number(20) PRIMARY KEY,
+    MgName VARCHAR2(30),
+    title VARCHAR2(30),
+    content VARCHAR2(1000),
+    readCount number(20) default 0,
+    wirteDate DATE default sysdate
+);
+
+create SEQUENCE managerTbl_seq
+NOCACHE;
+
+insert into managerBoard(MgNum, MgName, title, content)
+VALUES(managerTbl_seq.NEXTVAL,'관리자','안녕하세요','공지사항 페이지 입니다.');
