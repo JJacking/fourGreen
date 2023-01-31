@@ -9,16 +9,14 @@
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
-	<a href="signIn">로그인</a>
-	
-	<!--  -->
 	<div id="g_id_onload"
      data-client_id="1054940879188-tbhtj7bj8gu095tll389nrp294ivhaqv.apps.googleusercontent.com"
      data-callback="handleCredentialResponse"
      data-login_uri="http://localhost:8085/auction">
      <!-- data-ux_mode="redirect" -->
 	</div>
-	<div class="g_id_signin" data-type="standard" data-theme="filled_blue" data-text="signin" 	data-size="medium"></div>
+	<button type="button" onclick="location.href='signIn'" style="width: 220px; height: 45px; margin-bottom: 10px; border: none;">로그인</button><br>
+	<button class="g_id_signin" type="button" style="width: 220px; height: 45px; margin-bottom: 10px; border: none;" ></button><br>
 	
 	<script>
 	

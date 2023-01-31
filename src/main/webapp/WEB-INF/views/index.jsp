@@ -197,6 +197,8 @@ text-align: center;
 </head>
 
 <body>
+<script type="text/javascript">
+</script>
 <div class="nav">
   <div><h2><a href="#">logo</a></h2></div>
      <ul class="nav-menu">

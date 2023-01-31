@@ -52,7 +52,7 @@
 <input type="hidden" name="num" value="${product.num }">
 	<div>
 		<div>
-			<h6><a href="/index.html">홈</a></h6>
+			<h6><a href="/auction">홈</a></h6>
 			<h6> > </h6>
 			<h6><a href="${pageContext.request.contextPath }">메뉴 1</a></h6>
 			<h6> > </h6>
