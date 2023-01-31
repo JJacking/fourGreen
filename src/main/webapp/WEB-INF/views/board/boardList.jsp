@@ -32,10 +32,10 @@ width: 10%;
 </head>
 <body>
 <div class="nav">
-  <div><h2><a href="#">logo</a></h2></div>
+  <div><h2><a href="/auction">logo</a></h2></div>
      <ul class="nav-menu">
-      <li><a href="#">물품보기</a></li>
-      <li><a href="#">물품등록</a></li>
+      <li><a href="/auction/product">물품보기</a></li>
+      <li><a href="/auction/newAuction">물품등록</a></li>
       <li>
         <a href="#">게시판</a>
           <ul id="sub-menu">
@@ -47,6 +47,7 @@ width: 10%;
      </ul>
     <%--  <c:if test="${}"> --%>
         <div class="loginBtn">
+        	<p type="button" href="location='signInForm'"></p>
             <button type="button">로그인</button>
             <button type="button">회원가입</button>
         </div>

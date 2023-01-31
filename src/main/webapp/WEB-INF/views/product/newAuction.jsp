@@ -67,7 +67,7 @@
 	</table>
 	<button type="submit">경매 신청하기</button>
 	<button type="reset">취소하기</button>
-	<button type="button" onclick="location.href='/TeamProject'">목록으로</button>
+	<button type="button" onclick="location.href='/auction'">목록으로</button>
 </form>
 <script type="text/javascript">
 	function submit2() {
@@ -78,8 +78,6 @@
 			return true;
 		}
 		return false;
-		
-		alert('한번 등록한 상품은 수정/삭제가 불가능 합니다.	정말 등록하시겠습니까?');
 	}
 
 	let tr = document.getElementById('addTr');

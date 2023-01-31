@@ -27,7 +27,6 @@
 		    <version>1.4</version>
 		</dependency>
 	
-	
 		<dependency>
 		    <groupId>org.lazyluke</groupId>
 		    <artifactId>log4jdbc-remix</artifactId>

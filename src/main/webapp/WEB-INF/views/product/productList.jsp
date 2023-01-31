@@ -8,11 +8,12 @@
 <title>경매품목 리스트</title>
 </head>
 <body>
+
 <form action="" method="GET">
 	<div>
-		<h6><a href="auction/">홈</a></h6>
+		<h6><a href="${pageContext.request.contextPath }">홈</a></h6>
 		<h6> > </h6>
-		<h6><a href="product">메뉴 1</a></h6>
+		<h6><a href="${pageContext.request.contextPath }/product">메뉴 1</a></h6>
 	</div>
 	<hr>
 	<div>
@@ -95,27 +96,33 @@
 	</select>
 	<input type="text" name="searchText" id="searchText">
 	<input type="submit" value="검색하기">
-		
+	<script type="text/javascript">
+		let arr;
+		let titlePic;
+	</script>
 	<c:forEach var="product" items="${list}">
 	<hr>
 		<!-- 대표사진  -->
-		<a href="selectOne?num=${product.num }">
+		<a href="/auction/product/selectOne?num=${product.num}">
  		<c:choose>
-		<c:when test="${empty product.productPic}">
-				<img src="/auction/noimage.jpg">
+			<c:when test="${empty product.productPic}">
+					<img src="/img/noimage.jpg" onclick="/auction/product/selectOne?num=${product.num}">
 			</c:when>
 			<c:otherwise>
-				<img src="/auction/${product.productPic}">
+				<img id="${product.num}">
+			
+				<script type="text/javascript">
+					arr = '${product.productPic}'.split(',');
+					titlePic = document.getElementById('${product.num}');
+					titlePic.setAttribute('src','/img/'+arr[0]);
+				</script>
 			</c:otherwise>
 		</c:choose>
 		</a>
 		
-		<h4><a href="selectOne?num=${product.num }">${product.title }</a></h4>
+		<h4><a href="/auction/product/selectOne?num=${product.num}">${product.title }</a></h4>
 	
 	<div>
-		<span>${product.productPic}</span> <br>
-		<span>${product.title }</span><br>
-		
 		<span>
 			입찰가 : ${product.strPrice}
 		</span><br>
@@ -130,7 +137,7 @@
 		</span><br>
 		<span>
 			판매자
-			<%-- <p>${??.id }</p> --%>
+			<%-- <p>${user.id}</p> --%>
 		</span>
 	</div>
 	</c:forEach>
@@ -142,7 +149,7 @@
 			<c:if test="${startPage != 1 }">
 				<a href="pageNum=${startPage-10 }"><</a>
 			</c:if>
-			<c:forEach begin="${startPage }" end="${endPage }" varStatus="cnt">
+			<c:forEach begin="${startPage}" end="${endPage}" varStatus="cnt">
 				<a href="?${url }pageNum=${cnt.index }">${cnt.index }</a>
 			</c:forEach>
 			<c:if test="${endPage < totalPage }">

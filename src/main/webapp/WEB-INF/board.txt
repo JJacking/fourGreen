@@ -80,9 +80,9 @@ INSERT INTO reBoardComment(replyCno, num, replyUserName, replyUserPass, replyReC
 VALUES(reBoardComment_seq.NEXTVAL, 1,'딸기',1234,'딸기셋');
 
 select * from reBoardComment;
- 
 
- 
+
+
  select * from reBoardComment rbc INNER JOIN boardComment bc on rbc.num = bc.num;
  
  
