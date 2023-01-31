@@ -27,10 +27,10 @@
             <button type="button" onclick="location.href='signUp'">회원가입</button>
         </div>
     </c:if>
-   <c:if test="${not empty user }">
+    <c:if test="${not empty user }">
         <p>${user.nickname}님 환영합니다</p>
         <p><a href="signOut">로그아웃</a></p>
-        <p><a href="mypage">내정보</a></p>
+        <p><a href="myPage">내정보</a></p>
         <p><a href="charge">포인트충전/조회</a></p>
     </c:if>
 </div>

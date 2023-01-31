@@ -7,6 +7,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<link type="text/css" rel="stylesheet" href="./resources/style/board.css">
+<style>
+	.point{
+		margin: 10% 20%;
+	}
+	.point input{
+		height: 20px;
+	}
+</style>
 </head>
 <body>
 <div class="nav">
@@ -32,7 +41,7 @@
    <c:if test="${not empty user }">
         <p>${user.nickname}님 환영합니다</p>
         <p><a href="signOut">로그아웃</a></p>
-        <p><a href="mypage">내정보</a></p>
+        <p><a href="myPage">내정보</a></p>
         <p><a href="charge">포인트충전/조회</a></p>
     </c:if>
 </div>
@@ -41,6 +50,7 @@
 		location.href='signIn';
 	</script>
 </c:if>
+<div class="point">
 <c:if test="${not empty user }">
 	<form action="requestCharge" method="post" onsubmit="return check()">
 		<h2>포인트충전 페이지입니다</h2>	
@@ -49,6 +59,7 @@
 		<button type="submit">충전하기</button>
 	</form>
 </c:if>
+</div>
 <script type="text/javascript">
 	function check(){
 		let point = document.getElementById('charge').value;
@@ -66,5 +77,10 @@
 		
 	}
 </script>
+<footer>
+  <div class="footer">
+    <a href="https://github.com/JJacking/fourGreen.git" style="text-decoration: none; list-style: none; color: white; width:100%;" >@github 저장소 바로가기</a>
+  </div>
+</footer>
 </body>
 </html>

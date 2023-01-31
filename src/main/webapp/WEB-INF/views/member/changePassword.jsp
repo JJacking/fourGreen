@@ -6,6 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link type="text/css" rel="stylesheet" href="./resources/style/board.css">
+<style>
+	.changePw{
+		margin: 10% 20%;
+		 line-height: 30px;
+	}
+</style>
 </head>
 <body>
 <div class="nav">
@@ -31,10 +38,11 @@
    <c:if test="${not empty user }">
         <p>${user.nickname}님 환영합니다</p>
         <p><a href="signOut">로그아웃</a></p>
-        <p><a href="mypage">내정보</a></p>
+        <p><a href="myPage">내정보</a></p>
         <p><a href="charge">포인트충전/조회</a></p>
     </c:if>
 </div>
+<div class="changePw">
 <form action="" method="post" onsubmit="return check()">
 	<input type="hidden" name="id" value="${user.id }">
 	<table>
@@ -72,7 +80,7 @@
 		</tr>
 	</table>
 </form>
-
+</div>
 	<c:if test="${not empty msg }">
 		<script type="text/javascript">
 			alert('${msg}');
@@ -91,5 +99,10 @@
 		}
 	 }
 	</script>
+	<footer>
+	  <div class="footer">
+	    <a href="https://github.com/JJacking/fourGreen.git" style="text-decoration: none; list-style: none; color: white; width:100%;" >@github 저장소 바로가기</a>
+	  </div>
+	</footer>
 </body>
 </html>

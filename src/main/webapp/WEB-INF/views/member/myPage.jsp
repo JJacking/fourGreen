@@ -7,6 +7,16 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<link type="text/css" rel="stylesheet" href="./resources/style/board.css">
+<style>
+	.infoTb{
+	  	width: 100%;
+	  	margin: 10% 30% 10% 30%;
+	  	font-size: 20px;
+	  	border-collapse: collapse;
+	}
+	
+</style>
 </head>
 <body>
 <div class="nav">
@@ -32,10 +42,12 @@
    <c:if test="${not empty user }">
         <p>${user.nickname}님 환영합니다</p>
         <p><a href="signOut">로그아웃</a></p>
-        <p><a href="mypage">내정보</a></p>
+        <p><a href="myPage">내정보</a></p>
         <p><a href="charge">포인트충전/조회</a></p>
     </c:if>
 </div>
+
+<div class="infoTb">
 <form action="updateMember" method="post">
 	<table border="1" style="width: 200px;">
 		<tr>
@@ -91,7 +103,7 @@
 		</tr>
 	</table>
 </form>
-	
+</div>
 	<script type="text/javascript">
 		function withdraw(){
 			let userId = $('#userId').text();
@@ -101,5 +113,12 @@
 			}
 		}
 	</script>
+	
+	<footer>
+<div class="footer">
+    <a href="https://github.com/JJacking/fourGreen.git" style="text-decoration: none; list-style: none; color: white; width:100%;" >@github 저장소 바로가기</a>
+  </div>
+</footer>
+	
 </body>
 </html>
