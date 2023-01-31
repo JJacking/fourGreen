@@ -198,7 +198,7 @@ text-align: center;
 
 <body>
 <div class="nav">
-  <div><h2><a href="#">logo</a></h2></div>
+  <div><h2><a href="/">logo</a></h2></div>
      <ul class="nav-menu">
       <li><a href="product">물품보기</a></li>
       <li><a href="newAuction">물품등록</a></li>
@@ -222,8 +222,6 @@ text-align: center;
         <p><a href="signOut">로그아웃</a></p>
         <p><a href="mypage">내정보</a></p>
         <p><a href="charge">포인트충전/조회</a></p>
-        <p><a href="#">낙찰내역</a></p>
-        <p><a href="#">응찰내역</a></p>
     </c:if>
 </div>
   
