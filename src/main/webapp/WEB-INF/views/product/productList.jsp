@@ -161,15 +161,22 @@
 		<div id="imgSession">
 			<div class="imgCard">
 				<!-- 대표사진  -->
-				<a href="selectOne?num=${product.num }">
-		 		<c:choose>
-				<c:when test="${empty product.productPic}">
-						<img src="/auction/noimage.jpg">
-					</c:when>
-				<c:otherwise>
-					<img src="/auction/${product.productPic}">
-				</c:otherwise>
-				</c:choose>
+				<a href="/auction/product/selectOne?num=${product.num}">
+			 		<c:choose>
+						<c:when test="${empty product.productPic}">
+								<img src="/img/noimage.jpg" onclick="/auction/product/selectOne?num=${product.num}">
+						</c:when>
+						<c:otherwise>
+							<img id="${product.num}">
+						
+							<script type="text/javascript">
+								arr = '${product.productPic}'.split(',');
+								titlePic = document.getElementById('${product.num}');
+								titlePic.setAttribute('src','/img/'+arr[0]);
+								titlePic.setAttribute('style','width:100px; height:100px;');
+							</script>
+						</c:otherwise>
+					</c:choose>
 				</a>
 			
 				<h4><a href="selectOne?num=${product.num }">${product.title }</a></h4>
